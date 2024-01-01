@@ -19,4 +19,28 @@ const ticTacToe = (() => {
 
         determineFirstTurn(coinFlip);
     }
+
+    const chooseCell = (num) =>{
+        if (gameBoardArray[num-1] == null) {
+            gameBoardArray[num-1] = `${turn}`;
+            const isGameOver = checkIfGameOver();
+            isGameOver;
+            if(isGameOver == false) {
+                changeTurn();
+            }
+        }
+        else {
+            alert("This board cell is already occupied.");
+        }
+        console.log(gameBoardArray);
+    }
+
+    const changeTurn = () => {
+        if (turn == "P1") {
+            turn = "P2";
+        }
+        else if (turn == "P2") {
+            turn = "P1";
+        }
+    }
 })();
