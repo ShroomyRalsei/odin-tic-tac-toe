@@ -75,4 +75,10 @@ const ticTacToe = (() => {
         }
         return false;
     }
+
+    return {
+        startGame,
+        changeTurn,
+        chooseCell
+    }
 })();
