@@ -1,0 +1,41 @@
+body {
+    background-color:gray;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+    gap:5vh;
+}
+
+.game-container {
+    grid-template:10vh 30vh / repeat(3, 33%);
+    min-width:400px;
+    text-align:center;
+    font-size:1.1rem;
+}
+
+.game-container > div {
+    background-color:black;
+    gap:1px;
+    grid-column:1/4;
+    grid-template:10vh 10vh 10vh / repeat(3, 33%);
+}
+
+.game-container > div > div {
+    background-color:white;
+}
+
+.game-container, .game-container > div {
+    display:grid;
+}
+
+button {
+    background-color:green;
+    color:white;
+    border:none;
+    padding:8px 32px;
+}
+
+.restart-button {
+    background-color:red;
+}
