@@ -186,6 +186,7 @@ const ticTacToe = (() => {
     return {
         startGame,
         changeTurn,
-        chooseCell
+        chooseCell,
+        createForm
     }
 })();
