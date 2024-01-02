@@ -1,3 +1,11 @@
+const startBtn = document.querySelector(".start-btn");
+
+const formContainer = document.querySelector(".form-container");
+
+const gameContainer = document.querySelector(".game-container")
+
+const restartButton = document.querySelector(".restart-button")
+
 const ticTacToe = (() => {
     let gameBoardArray = [null, null, null, null, null, null, null, null, null];
 
