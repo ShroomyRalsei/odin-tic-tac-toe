@@ -154,8 +154,18 @@ const ticTacToe = (() => {
     function checkIfGameOver() {
         //check for diagonals
         if(gameBoardArray[0] == turn && gameBoardArray[4] == turn && gameBoardArray[8] == turn || gameBoardArray[2] == turn && gameBoardArray[4] == turn && gameBoardArray[6] == turn) {
-            console.log(`${turn} WINS`);
+            gameContainer.innerHTML = "";
+
+            const victoryText = document.createElement("h1");
+
+            victoryText.textContent = `${turn} WINS`;
+
+            victoryText.setAttribute("style", "grid-area:1/1/2/4;");
+
+            gameContainer.appendChild(victoryText);
+
             turn = null;
+
             gameBoardArray = [null, null, null, null, null, null, null, null, null];
             return true;
         }
@@ -164,8 +174,18 @@ const ticTacToe = (() => {
             //check for horizontal rows
             for(i = 0; i < 9; i+= 3) {
                 if(gameBoardArray[i] == turn && gameBoardArray[i+1] == turn && gameBoardArray[i+2] == turn) {
-                    console.log(`${turn} WINS`);
+                    gameContainer.innerHTML = "";
+
+                    const victoryText = document.createElement("h1");
+
+                    victoryText.textContent = `${turn} WINS`;
+
+                    victoryText.setAttribute("style", "grid-area:1/1/2/4;");
+
+                    gameContainer.appendChild(victoryText);
+
                     turn = null;
+
                     gameBoardArray = [null, null, null, null, null, null, null, null, null]
                     return true;
                 }
@@ -173,8 +193,18 @@ const ticTacToe = (() => {
             //check for vertical rows
             for(i = 0; i < 3; i++) {
                 if(gameBoardArray[i] == turn && gameBoardArray[i+3] == turn && gameBoardArray[i+6] == turn) {
-                    console.log(`${turn} WINS`);
+                    gameContainer.innerHTML = "";
+
+                    const victoryText = document.createElement("h1");
+
+                    victoryText.textContent = `${turn} WINS`;
+
+                    victoryText.setAttribute("style", "grid-area:1/1/2/4;");
+
+                    gameContainer.appendChild(victoryText);
+
                     turn = null;
+
                     gameBoardArray = [null, null, null, null, null, null, null, null, null]
                     return true;
                 }
