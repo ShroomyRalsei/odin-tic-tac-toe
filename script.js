@@ -59,6 +59,57 @@ const ticTacToe = (() => {
         }
     }
 
+    const createBoard = (playerOne, playerTwo) => {
+        const showPlayerOneName = document.createElement("h3");
+
+        const showCurrentTurn = document.createElement("h3");
+
+        const showPlayerTwoName = document.createElement("h3");
+
+        showPlayerOneName.textContent = `P1: ${playerOne}`;
+
+        showPlayerTwoName.textContent = `P2: ${playerTwo}`;
+
+        showCurrentTurn.textContent = `${turn} Turn`;
+
+        const boardContainer = document.createElement("div");
+
+        gameContainer.appendChild(showPlayerOneName);
+
+        gameContainer.appendChild(showCurrentTurn);
+
+        gameContainer.appendChild(showPlayerTwoName);
+
+        gameContainer.appendChild(boardContainer);
+
+        for(i = 1; i <= 9; i++) {
+            let iterationCount = `${i}`;
+
+            const boardCell = document.createElement("div");
+
+            boardCell.setAttribute("id", `cell-${+iterationCount}`);
+
+            boardCell.addEventListener("click", () => {
+                if (turn == "P1") {
+                    boardCell.textContent = "O";
+
+                    showCurrentTurn.textContent = "P2 Turn";
+
+                    chooseCell(`${+iterationCount}`);
+                }
+                else if (turn == "P2") {
+                    boardCell.textContent = "X";
+
+                    showCurrentTurn.textContent = "P1 Turn";
+
+                    chooseCell(`${+iterationCount}`);
+                }
+            })
+
+            boardContainer.appendChild(boardCell);
+        }
+    }
+
     const startGame = () => {
         const coinFlip = Math.random();
 
