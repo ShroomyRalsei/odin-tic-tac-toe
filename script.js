@@ -4,7 +4,20 @@ const formContainer = document.querySelector(".form-container");
 
 const gameContainer = document.querySelector(".game-container")
 
-const restartButton = document.querySelector(".restart-button")
+const restartBtn = document.querySelector(".restart-button")
+
+startBtn.addEventListener("click", () => {
+    if(gameContainer.innerHTML == "") {
+        ticTacToe.createForm();
+    }
+})
+
+restartBtn.addEventListener("click", () => {
+    if(gameContainer.innerHTML != "") {
+        gameContainer.innerHTML = "";
+        ticTacToe.createForm();
+    }
+})
 
 const ticTacToe = (() => {
     let gameBoardArray = [null, null, null, null, null, null, null, null, null];
