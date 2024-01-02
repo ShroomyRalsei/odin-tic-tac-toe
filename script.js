@@ -26,6 +26,7 @@ const ticTacToe = (() => {
 
     const createForm = () => {
         if(formContainer.innerHTML == "") {
+            gameBoardArray = [null, null, null, null, null, null, null, null, null];
             const form = document.createElement("form");
 
             const fieldset = document.createElement("fieldset");
