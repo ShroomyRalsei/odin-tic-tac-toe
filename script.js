@@ -166,8 +166,25 @@ const ticTacToe = (() => {
     }
 
     function checkIfGameOver() {
+        //check for tie
+        if(gameBoardArray[0] != null && gameBoardArray[1] != null && gameBoardArray[2] != null && gameBoardArray[3] != null && gameBoardArray[4] != null && gameBoardArray[5] != null && gameBoardArray[6] != null && gameBoardArray[7] != null && gameBoardArray[8] != null) {
+            gameContainer.innerHTML = "";
+
+            const tieText = document.createElement("h1");
+
+            tieText.textContent = `IT'S A TIE`;
+
+            tieText.setAttribute("style", "grid-area:1/1/2/4;");
+
+            gameContainer.appendChild(tieText);
+
+            turn = null;
+
+            gameBoardArray = [null, null, null, null, null, null, null, null, null]
+                return true;
+        }
         //check for diagonals
-        if(gameBoardArray[0] == turn && gameBoardArray[4] == turn && gameBoardArray[8] == turn || gameBoardArray[2] == turn && gameBoardArray[4] == turn && gameBoardArray[6] == turn) {
+        else if(gameBoardArray[0] == turn && gameBoardArray[4] == turn && gameBoardArray[8] == turn || gameBoardArray[2] == turn && gameBoardArray[4] == turn && gameBoardArray[6] == turn) {
             gameContainer.innerHTML = "";
 
             const victoryText = document.createElement("h1");
@@ -204,7 +221,7 @@ const ticTacToe = (() => {
                     return true;
                 }
             }
-            //check for vertical rows
+            //check for vertical columns
             for(i = 0; i < 3; i++) {
                 if(gameBoardArray[i] == turn && gameBoardArray[i+3] == turn && gameBoardArray[i+6] == turn) {
                     gameContainer.innerHTML = "";
