@@ -11,6 +11,54 @@ const ticTacToe = (() => {
 
     let turn = null;
 
+    const createForm = () => {
+        if(formContainer.innerHTML == "") {
+            const form = document.createElement("form");
+
+            const fieldset = document.createElement("fieldset");
+
+            const setPlayerOneName = document.createElement("input");
+
+            const setPlayerTwoName = document.createElement("input");
+
+            setPlayerOneName.setAttribute("placeholder", "P1 Name");
+
+            setPlayerTwoName.setAttribute("placeholder", "P2 Name");
+
+            setPlayerOneName.setAttribute("required", "true");
+
+            setPlayerTwoName.setAttribute("required", "true");
+
+            const okButton = document.createElement("button");
+
+            okButton.textContent = "OK";
+
+            okButton.setAttribute("type", "text");
+
+            okButton.addEventListener('click', (event) => {
+                if(setPlayerOneName.value != "" && setPlayerTwoName.value != "") {
+                    event.preventDefault();
+
+                    startGame();
+
+                    createBoard(setPlayerOneName.value, setPlayerTwoName.value);
+
+                    formContainer.removeChild(form);
+                }
+            })
+
+            formContainer.appendChild(form);
+
+            form.appendChild(fieldset);
+
+            fieldset.appendChild(setPlayerOneName);
+
+            fieldset.appendChild(setPlayerTwoName);
+
+            fieldset.appendChild(okButton);
+        }
+    }
+
     const startGame = () => {
         const coinFlip = Math.random();
 
